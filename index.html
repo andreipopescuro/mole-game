@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mole Game</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <link rel="icon" href="https://raw.githubusercontent.com/wesbos/JavaScript30/master/30%20-%20Whack%20A%20Mole/mole.svg" />
+  <script src="app.js" defer type="module"></script>
+</head>
+
+<body>
+  <div class="content">
+    <h3>
+      <span id="ns"></span>The best score
+      <div class="best-score">0</div>
+    </h3>
+    <h1>Whack-a-mole! <span class="score">0</span></h1>
+    <div class="time-container">
+      <span>Time</span><span id="left">left</span><span id="time">25</span>seconds
+    </div>
+
+    <div class="game">
+      <div class="hole hole1">
+        <div class="mole"></div>
+      </div>
+      <div class="hole hole2">
+        <div class="mole"></div>
+      </div>
+      <div class="hole hole3">
+        <div class="mole"></div>
+      </div>
+      <div class="hole hole4">
+        <div class="mole"></div>
+      </div>
+      <div class="hole hole5">
+        <div class="mole"></div>
+      </div>
+      <div class="hole hole6">
+        <div class="mole"></div>
+      </div>
+    </div>
+    <div class="btn-container">
+      <button class="start-btn inactive">Start Game</button>
+    </div>
+    <div class="level-container">
+      <label for="level">Choose level</label>
+      <select id="level">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </div>
+    <div class="best-score-container">
+      <form id="form">
+        <div>You want to appear in the top players?</div>
+        <input type="text" placeholder="type your username" required id="input" maxlength="20" />
+        <button type="submit" id="form-sub">Confirm & check the top</button>
+      </form>
+    </div>
+  </div>
+  <div class="leaderboard">
+    <div class="leaderboard-toggle">
+      Leaderboard
+      <div class="span-container">
+        <span class="material-symbols-outlined expand"> expand </span>
+      </div>
+      <div class="animation-arrow">
+        <span class="material-symbols-outlined arrow-left"> arrow_back </span>
+      </div>
+    </div>
+    <div class="leaderboard-table" id="lt">
+      <ol id="ol">
+        <div id="head">
+          <div class="head-info">
+            <span>Nr.</span>
+            <span id="space">Name</span>
+            <span>Score</span>
+            <span>Level</span>
+          </div>
+        </div>
+      </ol>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

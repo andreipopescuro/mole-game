@@ -1,0 +1,338 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  font-family: "Amatic SC", cursive;
+  font-weight: 900;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Amatic SC", cursive;
+  min-width: 100vw;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+.content {
+  padding: 2rem 0;
+  width: calc(100%);
+  height: 100%;
+  background-color: #ffc600;
+}
+
+.game {
+  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  justify-content: center;
+}
+
+.hole {
+  overflow: hidden;
+  position: relative;
+  width: 100px;
+  height: 150px;
+}
+
+.hole:after {
+  display: block;
+  background: url(https://raw.githubusercontent.com/wesbos/JavaScript30/master/30%20-%20Whack%20A%20Mole/dirt.svg)
+    bottom center no-repeat;
+  background-size: contain;
+  content: "";
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  z-index: 2;
+  bottom: -10px;
+}
+
+.mole {
+  background: url(https://raw.githubusercontent.com/wesbos/JavaScript30/master/30%20-%20Whack%20A%20Mole/mole.svg)
+    bottom center no-repeat;
+  background-size: 60%;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s;
+}
+
+.hole.up .mole {
+  top: 0;
+}
+
+h1 {
+  text-align: center;
+  line-height: 1;
+  font-family: "Amatic SC", cursive;
+  margin: 1rem 0;
+}
+
+h3 {
+  margin: 0;
+  gap: 20px;
+  justify-content: center;
+  display: flex;
+  font-family: "Amatic SC", cursive;
+  text-align: center;
+  line-height: 1;
+}
+
+.score {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  line-height: 1;
+  border-radius: 1rem;
+}
+
+.new {
+  font-size: 20px;
+  width: 15px;
+  color: rgb(203, 64, 170);
+}
+
+.new-best {
+  color: rgb(71, 197, 219);
+}
+
+.new-best-score {
+  animation: scale 1s ease-in-out 3;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(2);
+  }
+}
+
+.time-container {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1.2rem;
+}
+
+#left {
+  display: none;
+}
+
+#time {
+  color: white;
+  font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.3rem;
+  font-size: 2rem;
+}
+
+.btn-container {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.start-btn {
+  cursor: pointer;
+  transition: 1s;
+  border: none;
+  font-family: inherit;
+  font-weight: 900;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  background-color: transparent;
+  box-shadow: 0 0 2px 2px rgb(82, 49, 9);
+}
+
+.start-btn.inactive:hover {
+  transition: 1s;
+  background-color: rgba(0, 0, 0, 0.2);
+  scale: 1.1;
+}
+
+.level-container {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+#level {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  outline: none;
+  font-size: 1.2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.best-score-container {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.best-score-container div {
+  margin-bottom: 0.5rem;
+}
+
+.best-score-container button {
+  border: none;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  background-color: rgb(176, 156, 84);
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgb(125, 116, 86);
+}
+
+.best-score-container button:hover {
+  background-color: rgb(125, 116, 86);
+}
+.best-score-container input {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+@media (min-width: 850px) {
+  * {
+    font-size: larger;
+  }
+  .game {
+    column-gap: 2rem;
+    margin: 0 0;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .leaderboard {
+    height: 80px;
+  }
+}
+
+.leaderboard {
+  height: 50px;
+  min-width: calc(100%);
+  overflow: hidden;
+  background-color: black;
+  color: white;
+  padding-bottom: 3rem;
+}
+
+.leaderboard.active {
+  height: auto;
+  overflow: visible;
+}
+
+#head span:first-of-type {
+  color: rgb(228, 85, 85);
+}
+
+#head span:nth-of-type(2) {
+  color: rgb(87, 177, 109);
+}
+#head span:nth-of-type(3) {
+  color: rgb(129, 180, 81);
+}
+#head span:nth-of-type(4) {
+  color: rgb(47, 179, 197);
+}
+
+li:nth-of-type(1) {
+  color: gold;
+}
+li:nth-of-type(2) {
+  color: rgb(123, 123, 123);
+}
+li:nth-of-type(3) {
+  color: rgb(212, 117, 39);
+}
+
+li span {
+  background-color: rgba(255, 255, 255, 0.281);
+}
+li {
+  margin-bottom: 4px;
+}
+
+.arrow-left {
+  color: green;
+  animation: move-left 1s infinite;
+}
+
+@keyframes move-left {
+  0% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(-15px);
+  }
+}
+
+.leaderboard-toggle {
+  padding: 0.6rem 0;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.leaderboard-toggle .expand {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: 0.6s;
+}
+.span-container {
+  transition: 0.6s;
+}
+
+.leaderboard-table {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.expand:hover {
+  color: grey;
+  transition: 0.6s;
+  transform: rotate(270deg);
+}
+
+#ol {
+  width: 95%;
+  padding-left: 20px;
+}
+
+.wrapper-info {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.wrapper-info span {
+  flex: 1;
+  text-align: center;
+}
+.wrapper-info span:nth-of-type(1) {
+  flex: 2;
+}
+.head-info {
+  transform: translateX(-30px);
+  display: flex;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.head-info span:nth-of-type(2) {
+  padding-left: 22%;
+  width: 60%;
+}
+.head-info span:nth-of-type(3) {
+  width: 26%;
+}
